@@ -12,18 +12,18 @@ public:
     int DiagonalSum(vector<vector<int> >& matrix) {
         // Code here
         int n= matrix.size();
-        int sum1 = 0, sum2 = 0;
+        int sum = 0;
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n; j++){
                 if(i == j){
-                    sum1 += matrix[i][j];
+                    sum += matrix[i][j];
                 }
                 if(i + j == n- 1){
-                    sum2 += matrix[i][j];
+                    sum += matrix[i][j];
                 }
             }
         }
-        return sum1+sum2;
+        return sum;
         
     }
 };
