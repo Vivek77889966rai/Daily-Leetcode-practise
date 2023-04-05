@@ -6,7 +6,7 @@ public:
         
         int ans=0;
         for(int i=0;i<rows;i++){
-            sort(grid[i].begin(),grid[i].end(),greater<int>());
+            sort(grid[i].begin(),grid[i].end());
         }
         
         for(int i=0;i<cols;i++){
