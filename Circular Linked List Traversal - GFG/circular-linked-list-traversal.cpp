@@ -67,11 +67,13 @@ struct Node
 void printList(struct Node *head)
 {
   // code here
-  if(head==NULL){
+  if(head == NULL){
       return;
   }
-  cout<<(head->data)<<" ";
-  for(Node *p = head->next; p!=head;p=p->next){
+  
+  Node *p = head;
+  do{
       cout<<(p->data)<<" ";
-  }
+      p=p->next;
+  }while(p!=head);
 }
