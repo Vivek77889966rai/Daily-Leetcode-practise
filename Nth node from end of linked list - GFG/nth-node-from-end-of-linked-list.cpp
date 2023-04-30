@@ -64,17 +64,20 @@ int main()
 int getNthFromLast(Node *head, int n)
 {
        // Your code here
-    int len=0;
-    for(Node *curr=head;curr!=NULL;curr=curr->next){
-        len++;
+    if(head==NULL)
+     return -1;
+    Node *first=head;
+    for(int i=0;i<n;i++){
+        if(first==NULL)
+         return -1;
+        first=first->next;
     }
-    if(len<n)
-        return -1;
-    Node *curr = head;
-    for(int i=1;i<len-n+1;i++){
-        curr=curr->next;
+    Node *second=head;
+    while(first!=NULL){
+        second=second->next;
+        first=first->next;
     }
-    int ans = curr->data;
-    return ans;
+    
+    return second->data;
 }
 
