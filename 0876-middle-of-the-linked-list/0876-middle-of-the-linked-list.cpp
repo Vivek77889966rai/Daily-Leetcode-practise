@@ -14,16 +14,11 @@ public:
         if(head==NULL){
             return NULL;
         }
-        int count=0;
-        ListNode *curr;
-        for(curr=head; curr!=NULL; curr= curr->next){
-            count++;
+        ListNode *slow=head, *fast= head;
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
         }
-        
-        curr= head;
-        for(int i=0;i<count/2;i++){
-            curr= curr->next;
-        }
-        return curr;
+        return slow;
     }
 };
