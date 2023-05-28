@@ -1,4 +1,5 @@
 //{ Driver Code Starts
+//Initial Template for C++
 // C program to find n'th Node in linked list
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,6 +23,52 @@ int getNthFromLast(struct Node* head, int n);
 
 
 /* Driver program to test above function*/
+
+// } Driver Code Ends
+/* struct Node {
+  int data;
+  struct Node *next;
+  Node(int x) {
+    data = x;
+    next = NULL;
+  }
+};
+*/
+
+//Function to find the data of nth node from the end of a linked list.
+class Solution{
+public:
+    Node* rev(Node*h){
+        Node* p=nullptr,*c=h;
+        while(c){
+            Node* t=c->next;
+            c->next=p;
+            p=c;
+            c=t;
+        }
+        return p;
+    }
+    
+    int getNthFromLast(Node *head, int n)
+    {
+           head=rev(head);
+           int c=0;
+           Node* h=head;
+           while(h){
+               c++;
+               h=h->next;
+           }
+           if(n>c)return -1;
+           h=head;
+           while(--n) h=h->next;
+           return h->data;
+    }
+};
+
+
+
+//{ Driver Code Starts.
+
 int main()
 {
   int T,i,n,l,k;
@@ -42,42 +89,9 @@ int main()
             tail->next = new Node(l);
             tail = tail->next;
         }
-
-    cout<<getNthFromLast(head, k)<<endl;
+    Solution obj;
+    cout<<obj.getNthFromLast(head, k)<<endl;
     }
     return 0;
 }
 // } Driver Code Ends
-
-
-/* struct Node {
-  int data;
-  struct Node *next;
-  Node(int x) {
-    data = x;
-    next = NULL;
-  }
-};
-*/
-
-//Function to find the data of nth node from the end of a linked list.
-int getNthFromLast(Node *head, int n)
-{
-       // Your code here
-    if(head==NULL)
-     return -1;
-    Node *first=head;
-    for(int i=0;i<n;i++){
-        if(first==NULL)
-         return -1;
-        first=first->next;
-    }
-    Node *second=head;
-    while(first!=NULL){
-        second=second->next;
-        first=first->next;
-    }
-    
-    return second->data;
-}
-
