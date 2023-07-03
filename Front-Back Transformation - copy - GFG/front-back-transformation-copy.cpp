@@ -22,11 +22,12 @@ int main()
 string convert(string s)
 {
     // code here.
-    for(auto &x : s){
-        if(x>='a' &&x<='z') 
-         x = 'z'-(x-'a');
-        else 
-         x = 'Z'-(x-'A');
+    for(int i = 0; i < s.length(); i++)
+    {
+        if(s[i] >= 'a' && s[i] <= 'z')
+            s[i] = 'z' - s[i] + 'a';
+        else
+            s[i] = 'Z' - s[i] + 'A';
     }
     return s;
 }
