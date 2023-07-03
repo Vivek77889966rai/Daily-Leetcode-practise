@@ -13,11 +13,15 @@ public:
 	{
 	    // Your code goes here
 	    string str="";
-	    for(const auto x:S)
-	    {
-	        if(isdigit(x))
-	            str += x;
+	    for(int i=0;i<S.length();i++){
+	        if( (S[i]>= 'A' && S[i]<='Z') || (S[i]>='a' && S[i]<= 'z')){
+	            continue;
+	        }
+	        else{
+	            str += S[i];
+	        }
 	    }
+	    
 	    return str;
 	}
 };
