@@ -11,17 +11,14 @@ public:
 	string removeVowels(string S) 
 	{
 	    // Your code goes here
-	    string s1="";
+	    string ans;
 	    for(int i=0;i<S.length();i++){
-	        if(S[i]=='a' || S[i] =='e' || S[i] =='o' || S[i] == 'u' || S[i]== 'i'){
-	            continue;
-	        }
-	        else{
-	            s1 += S[i];
+	        if(S[i]!='a' && S[i] !='e' && S[i] !='o' && S[i] != 'u' && S[i]!= 'i'){
+	            ans.push_back(S[i]);
 	        }
 	    }
 	    
-	    return s1;
+	    return ans;
 	}
 };
 
