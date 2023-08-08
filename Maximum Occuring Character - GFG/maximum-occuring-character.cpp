@@ -5,44 +5,33 @@ using namespace std;
 
 // } Driver Code Ends
 
-
 class Solution
 {
     public:
     //Function to find the maximum occurring character in a string.
     char getMaxOccuringChar(string str)
     {
-        // Your code here
-         int arr[26] = {0};
+        vector<int>hash(26,0);
         
-        for(int i=0; i<str.size(); i++){
-            
-        char ch = str[i];
-            
-        if(isalpha(ch)){
-            
-            char tolowercase = tolower(ch);
-            int index = tolowercase - 'a';
-            arr[index]++;
-            
-            }
-        }
-        
+        //using hash table to store count of each character.
+        for(auto i: str)
+        hash[i-'a']++;
         int maxi = 0;
-        int maxoccurchar = 0;
+        char ch;
         
-        for(int i=0; i<26; i++){
-            
-            if(arr[i] > maxi){
-                
-                maxi = arr[i];
-                maxoccurchar = i + 'a';
+        //iterating over the hash table.
+        for(int i = 0; i < 26; i++)
+        {
+            //we keep storing the maximum value in hash 
+            //table and its corresponding character.
+            if(hash[i] > maxi){
+                maxi = hash[i];
+                ch = i + 'a';
             }
-            
         }
-        return maxoccurchar;
+        //returning the character with maximum occurrences.
+        return ch;
     }
-
 };
 
 //{ Driver Code Starts.
